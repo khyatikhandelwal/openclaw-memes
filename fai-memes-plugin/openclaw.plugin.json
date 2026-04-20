@@ -1,0 +1,30 @@
+{
+  "id": "fai-memes",
+  "name": "Fai Meme Generator",
+  "description": "Send AI-generated memes via the Fai Meme API. Supports 7 meme image formats.",
+  "version": "1.0.0",
+  "openclaw": {
+    "extensions": ["./index.ts"],
+    "skills": ["./skills/fai-memes"]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "Your Fai API key (if required)"
+      },
+      "defaultFormat": {
+        "type": "string",
+        "enum": ["standard", "wide", "tall", "square", "classic", "minimal", "bold"],
+        "description": "Default meme image format",
+        "default": "standard"
+      }
+    }
+  },
+  "uiHints": {
+    "apiKey": { "label": "Fai API Key", "sensitive": true, "placeholder": "Optional - leave blank if not required" },
+    "defaultFormat": { "label": "Default Meme Format" }
+  }
+}
